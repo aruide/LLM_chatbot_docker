@@ -5,10 +5,10 @@ FROM python:3.10-slim
 WORKDIR /app
 
 # Copier uniquement requirements.txt pour utiliser le cache Docker sur l'installation pip
-COPY requirements.txt .
+#COPY requirements.txt .
 
 # Installer les dépendances
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # Copier le reste du code source
 COPY . .
