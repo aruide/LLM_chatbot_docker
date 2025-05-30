@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: https://github.com/aruide/LMM_chatbot_backend.git
+      dockerfile: dockerfile/dockerfile_backend
+    ports:
+      - "5000:5000"
+
+  frontend:
+    build:
+      context: https://github.com/aruide/LMM_chatbot_frontend.git
+      dockerfile: dockerfile/dockerfile_frontend
+    ports:
+      - "8000:8000"
+
+  tts:
+    build:
+      context: https://github.com/aruide/LMM_chatbot_tts.git
+      dockerfile: dockerfile/dockerfile_tts
+    ports:
+      - "6000:6000"
