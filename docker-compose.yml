@@ -2,20 +2,16 @@ services:
   backend:
     build:
       context: ./app/backend
-      dockerfile: ../../dockerfile/dockerfile_backend
+    volumes:
+    - ./app/backend:/app
     ports:
       - "5000:5000"
       
   frontend:
     build:
       context: ./app/frontend
-      dockerfile: ../../dockerfile/dockerfile_frontend
+    volumes:
+    - ./app/frontend:/app
+
     ports:
       - "8000:8000"
-
-  tts:
-    build:
-      context: ./app/tts
-      dockerfile: ../../dockerfile/dockerfile_tts
-    ports:
-      - "6000:6000"
