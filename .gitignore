@@ -173,9 +173,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-/app/LMM_chatbot_backend/*
-/app/LMM_chatbot_frontend/*
-/app/LMM_chatbot_tts/*
-!/app/LMM_chatbot_backend/.gitignore
-!/app/LMM_chatbot_frontend/.gitignore
-!/app/LMM_chatbot_tts/.gitignore
+app/*
+!/app/.gitignore
