@@ -1,20 +1,29 @@
-# Image officielle Python 3.10 légère
-FROM python:3.10-slim
+# Utiliser une image avec PyTorch déjà installé
+FROM pytorch/pytorch:2.0.0-cuda11.7-cudnn8-runtime
 
-# Définir le répertoire de travail
+# Définir le dossier de travail
 WORKDIR /app
 
-# Copier uniquement requirements.txt pour utiliser le cache Docker sur l'installation pip
-#COPY requirements.txt .
+# Installer git et les dépendances système nécessaires
+RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
 
-# Installer les dépendances
-#RUN pip install --no-cache-dir -r requirements.txt
+# Copier uniquement les fichiers nécessaires
+COPY requirements.txt .
 
-# Copier le reste du code source
+# Installer les dépendances (avec cache)
+RUN pip install --upgrade pip \
+ && pip install --no-cache-dir -r requirements.txt
+
+# Installer Tortoise TTS (sans dépendances, pour éviter conflit avec torch)
+RUN pip install tokenizers==0.14.0
+RUN pip install transformers==4.31.0 --no-deps
+RUN pip install git+https://github.com/neonbjb/tortoise-tts.git --no-deps
+
+# Copier le reste du code
 COPY . .
 
-# Exposer le port de l'application (ex: 5000 pour Flask)
+# Exposer le port utilisé par le service TTS (si applicable)
 EXPOSE 6000
 
-# Commande pour lancer ton app (à adapter)
-CMD ["python", "index.html"]
+# Lancer ton service — à adapter selon ton script principal
+#CMD ["python", "main.py"]

@@ -16,5 +16,5 @@ COPY . .
 # Exposer le port de l'application (ex: 5000 pour Flask)
 EXPOSE 8000
 
-# Commande pour lancer ton app (à adapter)
-CMD ["python", "index.html"]
+# Lancement du serveur HTTP sur le port 8000
+CMD ["python", "-m", "http.server", "8000"]

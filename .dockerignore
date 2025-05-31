@@ -1,0 +1,20 @@
+# Dossiers inutiles
+__pycache__/
+.venv/
+env/
+venv/
+
+# Fichiers inutiles
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Modèles et poids
+*.ckpt
+*.pt
+*.pth
+*.npz
