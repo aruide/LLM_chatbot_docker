@@ -14,8 +14,6 @@ services:
     - ./app/frontend:/app
     ports:
       - "8000:8000"
-    depends_on:
-      - tts
   
   tts:
     build:
