@@ -5,9 +5,8 @@ echo ">>> Clonage des repos"
 cd app
 
 # Clonage
-[ ! -d backend ] && git clone git@github.com:aruide/LMM_chatbot_backend.git backend
-[ ! -d frontend ] && git clone git@github.com:aruide/LMM_chatbot_frontend.git frontend
-[ ! -d tts ] && git clone git@github.com:aruide/LMM_chatbot_tts.git tts
+[ ! -d backend ] && git clone git@github.com:aruide/LLM_chatbot_backend.git backend
+[ ! -d frontend ] && git clone git@github.com:aruide/LLM_chatbot_frontend.git frontend
 
 cd ..
 
